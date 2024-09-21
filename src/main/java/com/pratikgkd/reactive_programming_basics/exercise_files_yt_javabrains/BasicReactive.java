@@ -1,8 +1,12 @@
-package com.pratikgkd.reactive_programming_basics.exercise_files;
+package com.pratikgkd.reactive_programming_basics.exercise_files_yt_javabrains;
 
-import com.pratikgkd.reactive_programming_basics.helpers.StreamSources;
+import com.pratikgkd.reactive_programming_basics.helpers_yt_javabrains.StreamSources;
 
-public class Exercise1 {
+/**
+ * Exercise 1 of JavaBrains Reactive Programming from Youtube
+ * https://youtu.be/cSJK67USyXA?si=9Q9lsR4iapIPJMtQ
+ */
+public class BasicReactive {
 
   public static void main(String[] args) {
 
