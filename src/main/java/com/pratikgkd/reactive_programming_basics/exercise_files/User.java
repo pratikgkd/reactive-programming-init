@@ -1,4 +1,4 @@
-package com.pratikgkd.reactive_programming_basics.exercise_files_yt_javabrains;
+package com.pratikgkd.reactive_programming_basics.exercise_files;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.pratikgkd.reactive_programming_basics.helpers_yt_javabrains;
+package com.pratikgkd.reactive_programming_basics.helpers;
 
-import com.pratikgkd.reactive_programming_basics.exercise_files_yt_javabrains.User;
+import com.pratikgkd.reactive_programming_basics.exercise_files.User;
 import lombok.experimental.UtilityClass;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
