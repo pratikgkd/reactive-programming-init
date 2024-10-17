@@ -47,7 +47,7 @@ public class BasicReactive {
     System.out.println("\nWith flatmap::::");
     StreamSources.intNumbersStream()
         .flatMap(id -> StreamSources.userStream().filter(user -> user.getId() == id))
-        .map(user -> user.getFirstName())
+        .map(User::getFirstName)
         .forEach(System.out::println);
   }
 

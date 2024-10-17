@@ -15,11 +15,11 @@ public class SubscribeExtended {
 
     //More on subscribe (overloads)
     // 1. with implementation and error handling params viz 2 consumers
-    ReactiveSources.intNumberMono().subscribe(num1 -> System.out.println(num1),
+    ReactiveSources.intNumberMono().subscribe(System.out::println,
         err -> System.out.println(err.getMessage()));
 
     // 2. with implementation, error & completion handling params
-    ReactiveSources.intNumberMono().subscribe(num1 -> System.out.println(num1),
+    ReactiveSources.intNumberMono().subscribe(System.out::println,
         err -> System.out.println(err.getMessage()),
         () -> System.out.println("Completed flow"));
 
@@ -27,7 +27,7 @@ public class SubscribeExtended {
 
     // Subscribe to a flux using the error and completion hooks
     ReactiveSources.intNumberMono().subscribe(
-        num -> System.out.println(num),
+        System.out::println,
         err -> System.out.println(err.getMessage()),
         () -> System.out.println("Completed")
     );
@@ -45,10 +45,12 @@ public class SubscribeExtended {
  * subscribe but don't start consuming we mention max count of data we are ok with consuming in
  * request(n), WE DON'T  pull that much data, just mention the count pushing data still we producer
  * the pattern still remains PUSH and not PULL
+ *
  * @param <T>
  */
 class CustomSubscriber<T> extends BaseSubscriber<T> {
 
+  @Override
   public void hookOnSubscribe(Subscription subscription) {
     System.out.println("Subscribe happened");
 
@@ -57,6 +59,7 @@ class CustomSubscriber<T> extends BaseSubscriber<T> {
     request(1);
   }
 
+  @Override
   public void hookOnNext(T value) {
     System.out.println(value.toString());
 

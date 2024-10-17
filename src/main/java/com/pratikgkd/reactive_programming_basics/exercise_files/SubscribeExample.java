@@ -14,10 +14,10 @@ public class SubscribeExample {
 
     //Task: Print all numbers in the ReactiveSources.intNumbersFlux stream
     //Explanation: subscribe() will wait and consume msgs once emitted
-    ReactiveSources.intNumbersFlux().subscribe(num -> System.out.println(num));
+    ReactiveSources.intNumbersFlux().subscribe(System.out::println);
 
     //Task: Print all users in the ReactiveSources.userFlux stream
-    ReactiveSources.userFlux().subscribe(user -> System.out.println(user));
+    ReactiveSources.userFlux().subscribe(System.out::println);
 
     //Example to show order is not guaranteed
     Flux<Integer> flux = ReactiveSources.intNumbersFlux();

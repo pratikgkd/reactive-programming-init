@@ -18,18 +18,20 @@ public class ErrorHandling {
     // Print values from intNumbersFluxWithException and print a message when error happens
     ReactiveSources.intNumbersFluxWithException()
         .doOnError(e -> System.out.println("Error ala: " + e.getMessage()))
-        .subscribe(num -> System.out.println(num));
+        .subscribe(System.out::println);
 
     // Print values from intNumbersFluxWithException and continue on errors
     ReactiveSources.intNumbersFluxWithException()
-        .onErrorContinue((e, item) -> System.out.println("Error ala pan contnue karel:: " + e.getMessage()))
-        .subscribe(num -> System.out.println(num));
+        .onErrorContinue(
+            (e, item) -> System.out.println("Error ala pan contnue karel:: " + e.getMessage()))
+        .subscribe(System.out::println);
 
     // Print values from intNumbersFluxWithException and when errors
     // happen, replace with a fallback sequence of -1 and -2
     ReactiveSources.intNumbersFluxWithException()
-        .onErrorResume(e -> Flux.just(-1, -2))  //on error use the flux given i.e. of -1,-2 and ignore the og flux
-        .subscribe(num -> System.out.println(num));
+        .onErrorResume(e -> Flux.just(-1,
+            -2))  //on error use the flux given i.e. of -1,-2 and ignore the og flux
+        .subscribe(System.out::println);
 
     System.out.println("Press a key to end");
     System.in.read();
